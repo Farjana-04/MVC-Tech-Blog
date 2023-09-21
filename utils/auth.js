@@ -6,4 +6,4 @@
 //     }
 // };
 
-// module.exports = withAuth;
+module.exports = withAuth;
