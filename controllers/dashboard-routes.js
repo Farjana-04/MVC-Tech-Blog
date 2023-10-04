@@ -7,7 +7,6 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
       where: {
-        // use the ID from the session
         user_id: req.session.user_id
       },
       attributes: [
@@ -32,7 +31,6 @@ router.get('/', withAuth, (req, res) => {
       ]
     })
       .then(dbPostData => {
-        // serialize data before passing to template
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true });
       })
@@ -73,7 +71,6 @@ router.get('/update/:id', withAuth, (req, res) => {
             res.status(404).json({ message: 'No post found with this id' });
             return;
           }
-            // serialize data before passing to template
             const post = dbPostData.get({ plain: true });
             res.render('update-post', {post, loggedIn: true});
         })
@@ -82,9 +79,6 @@ router.get('/update/:id', withAuth, (req, res) => {
           res.status(500).json(err);
         });
 })
-
-
-// redirecting users to sign in page once they sign up
 router.get('/new', (req, res) => {
     res.render('new-post');
 });

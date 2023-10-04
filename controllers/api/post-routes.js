@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 // GET all posts
 router.get('/', (req, res) => {
     Post.findAll({
-      // Query configuration
+    
         attributes: ['id', 
                     'title',
                     'content',
@@ -77,7 +77,7 @@ router.get('/:id', (req, res) => {
 
 // creating a post
 router.post('/', withAuth, (req, res) => {
-    // create 1 post
+    
     Post.create({ 
         title: req.body.title,
         content: req.body.content,
@@ -89,9 +89,6 @@ router.post('/', withAuth, (req, res) => {
             res.status(500).json(err); 
         });
 });
-
-
-
 // update a post title
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
@@ -114,9 +111,6 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
-
-
 // delete a post 
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
