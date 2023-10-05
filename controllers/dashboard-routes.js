@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 
 router.get('/', withAuth, (req, res) => {
-    Post.findAll({
+     Post.findAll({
       where: {
         user_id: req.session.user_id
       },
@@ -29,17 +29,16 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['username']
         }
       ]
+       
+    }).then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('dashboard', posts );
     })
-      .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
-      })
-      .catch(err => {
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   });
-
 
 router.get('/update/:id', withAuth, (req, res) => {
     Post.findOne({

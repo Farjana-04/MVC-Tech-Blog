@@ -5,15 +5,32 @@ const withAuth = require('../../utils/auth');
 // The `/api/comment` endpoint
 // GET all Comment
 router.get('/', (req, res) => {
-    Comment.findAll({})
+    Comment.findAll({
+        include: [User],
+    })
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
             console.log(err); 
             res.status(500).json(err); 
         })
 });
+router.get('/', withAuth, async (req, res) => {
+    try{ 
+     const commentData = await Comment.findAll({
+       include: [User],
+     });
+   // serialize the data
+     const comments = commentData.map((comment) => comment.get({ plain: true }));
+   
+     console.log(comments);
+     
+     res.render('single-post', {comments, loggedIn: req.session.loggedIn});
+   } catch(err) {
+       res.status(500).json(err);
+   }
+   });
 //route to create a comment
-router.post('/', withAuth, (req, res) => {
+router.post('/comments', withAuth, (req, res) => {
     if (req.session) {
     Comment.create({
         comment_text: req.body.comment_text, 

@@ -2,6 +2,7 @@
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
@@ -48,7 +49,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', withAuth, async(req, res) => {
     Post.findOne({
       where: {
         id: req.params.id
