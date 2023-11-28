@@ -3,7 +3,7 @@
 <section>
   <h2>Your Posts</h2>
     {{#each posts as |post|}}
-      {{> dashboard-postinfo post}}
+      {{> post-info post}}
       <a href="/dashboard/update/{{post.id}}">Update post</a>
     {{/each}}
 
