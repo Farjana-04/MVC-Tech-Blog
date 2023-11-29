@@ -1,8 +1,7 @@
 # MVC-Tech-Blog
 
 ## Description:
-This task is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. Build this site completely from scratch and deploy it to Heroku. This app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
-
+This task is to build a CMS-style blog site similar to a WordPress site, where developers can publish their blog posts and comment on other developers’ posts as well. Build this site completely from scratch and deploy it to Heroku. This app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,14 +12,22 @@ This task is to build a CMS-style blog site similar to a Wordpress site, where d
 - [Username](#username)
 - [Email](#email)
 
+## Installation:
+Install using the package manager.
+`npm install` 
+
 ## Usage
-Follow the examples on my repo.
+If you wish to seed the database with the data from the seed.js file, use the command `npm run seed`. Start the application by typing this command:
+ 
+  `npm start`
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Contribute
-No contributes
+## Contributing Guidelines:
+Please contact me if you have any questions `Email`
+
+[Farjana](mailto:farjana.akhter085@gmail.com)
 
 ## Tests
 Testing is not required
