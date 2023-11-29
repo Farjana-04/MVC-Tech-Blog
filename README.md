@@ -3,6 +3,9 @@
 ## Description:
 This task is to build a CMS-style blog site similar to a WordPress site, where developers can publish their blog posts and comment on other developers’ posts as well. Build this site completely from scratch and deploy it to Heroku. This app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
+## Screenshot:
+![photo](https://github.com/Farjana-04/MERN-Book-Search-Engine/assets/92415181/4ba06ce7-d552-464a-b5ce-9f0984608ea9)
+
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -34,7 +37,4 @@ Testing is not required
 
 ## Deployed Application Link:
 https://model-view-controller-tb-4706bf28de94.herokuapp.com/
-
-
-
 
